@@ -6,6 +6,6 @@
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ne8d8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(275, 101)
 texture = ExtResource("1_b0coh")

@@ -8,13 +8,14 @@ var utils: Dictionary[StringName, Utility] = {}
 ## Loads utilities. Input: Array of Strings with the format: "[mod]:[util]". Example: epic_mod:cool_utility
 func _init(util_list: Array[StringName], target: Node) -> void:
 	for util in util_list:
-		var mod_node = Utility.new(target)
+		var mod_node = Utility.new()
 		mod_node.name = util
-		mod_node.set_script(_load_util(util, target))
+		mod_node.set_script(_load_util(util))
+		mod_node._target = target
 		target.add_child(mod_node)
 		utils[util] = mod_node
 
-func _load_util(util_name: StringName, target: Node) -> Script:
+func _load_util(util_name: StringName) -> Script:
 	var util_script: Script
 	if cached_utils.has(util_name):
 		util_script = cached_utils[util_name]
